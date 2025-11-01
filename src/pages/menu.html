@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../styles/menu.css" />
+    <title>Checklist</title>
+</head>
+<body>
+    <header>
+        <button id="logoutButton">Sair</button>
+    </header>
+
+    <section id="Principal">
+        <div id="divH1">
+            <h1>Bem-vindo ao Painel</h1>
+        </div>
+        <div id="divParagrafo">
+            <p>Selecione uma das opçoes</p>
+        </div>
+        <div id="divBotoes">
+            <button href="#">
+                <div id="divBotao">
+                    <i class="fi fi-br-plus"></i>
+                    Criar Novo Checklist
+                </div>
+                
+            </button>
+            <button href="#">
+                <div id="divBotao">
+                   <i class="fi fi-br-clipboard-list-check"></i>
+                    Listar Checklists
+                </div> 
+                
+            </button>
+        </div>
+    </section>
+
+    <script type="module" src="../js/firebase-config.js"></script>
+    <script type="module" src="../js/auth.js"></script>
+    <script type="module" src="../js/menu.js"></script>
+</body>
+</html>

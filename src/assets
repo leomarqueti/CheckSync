@@ -1,0 +1,19 @@
+checksync-app
+├── src
+│   ├── pages
+│   │   ├── login.html
+│   │   └── menu.html
+│   ├── styles
+│   │   ├── login.css
+│   │   └── menu.css
+│   ├── js
+│   │   ├── auth.js
+│   │   ├── firebase-config.js
+│   │   └── menu.js
+│   └── assets
+│       └── # Este diretório pode ser utilizado para armazenar arquivos estáticos, como imagens ou fontes.
+├── .env
+├── .gitignore
+├── firebase.json
+├── package.json
+└── README.md

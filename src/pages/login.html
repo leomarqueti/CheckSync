@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../styles/login.css" />
+    
+
+    <title>CheckSync - Login</title>
+</head>
+<body>
+    <section>
+        <div id="divPrincipal">
+            <div>
+                <h1>Check<span style="color: #007BFF;"> Sync</span></h1>
+                <div id="divForm">
+                    <h2>Bem vindo!</h2>
+                    <p>Faça login para gerenciar seus checklists e otimizar sua oficina.</p>
+                </div>
+            </div>
+            <form action="" id="loginForm">
+                <div id="divForm">
+                    <label id="labelLogin">Login</label>
+                    <input type="text" id="inputLogin" required>
+                </div>
+                <div id="divForm">
+                    <label id="labelSenha">Senha</label>
+                    <input type="password" id="inputSenha" required>
+                </div>                
+                <button type="submit">Logar</button>
+            </form>
+        </div>
+    </section>
+   <script type="module" src="../js/firebase-config.js"></script>
+  <script type="module" src="../js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "checksync-app",
+  "version": "1.0.0",
+  "description": "Um aplicativo para gerenciar checklists com autenticação de usuários utilizando Firebase.",
+  "main": "src/js/auth.js",
+  "scripts": {
+    "start": "live-server src --open=pages/login.html"
+  },
+  "dependencies": {
+    "firebase": "^9.0.0"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "author": "Seu Nome",
+  "license": "MIT"
+}
