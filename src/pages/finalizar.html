@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <title>Finalizar Checklist</title>
+  <link rel="stylesheet" href="../styles/formulario.css">
+</head>
+<body>
+  <h1>Revisar e Finalizar</h1>
+  <div id="preview"></div>
+
+  <div style="margin-top:18px; display:flex; justify-content:flex-end; gap:12px;">
+    <button id="imprimir" class="btn secondary">Imprimir / Exportar</button>
+    <button id="finalizar" class="btn">Finalizar Checklist</button>
+  </div>
+
+  <script type="module">
+    import { initFirebase } from '../modules/firebase.js';
+    import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+    import { doc, getDoc, updateDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+
+    const { auth, db } = initFirebase();
+    const preview = document.getElementById('preview');
+
+    onAuthStateChanged(auth, async (user) => {
+      if (!user) {
+        alert('Faça login.');
+        location.href = '/src/pages/login.html';
+        return;
+      }
+      const id = localStorage.getItem('currentChecklistId');
+      if (!id) {
+        preview.innerText = 'Nenhum checklist em andamento.';
+        return;
+      }
+
+      const ref = doc(db, 'checklists', id);
+      const snapshot = await getDoc(ref);
+      if (!snapshot.exists()) {
+        preview.innerText = 'Checklist não encontrado.';
+        return;
+      }
+
+      const data = snapshot.data();
+      // Render simples; personalize conforme necessário
+      preview.innerHTML = `<pre style="white-space:pre-wrap">${JSON.stringify(data, null, 2)}</pre>`;
+    });
+
+    document.getElementById('imprimir').addEventListener('click', () => {
+      window.print(); // ou usar biblioteca para PDF
+    });
+
+    document.getElementById('finalizar').addEventListener('click', async () => {
+      const id = localStorage.getItem('currentChecklistId');
+      if (!id) return alert('ID não encontrado.');
+
+      const ref = doc(db, 'checklists', id);
+      await updateDoc(ref, {
+        status: 'finalizado',
+        finalizedAt: serverTimestamp()
+      });
+
+      localStorage.removeItem('currentChecklistId');
+      alert('Checklist finalizado.');
+      // redireciona para lista ou visualização
+      window.location.href = '/src/pages/menu.html';
+    });
+  </script>
+</body>
+</html>

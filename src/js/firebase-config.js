@@ -1,13 +1,14 @@
-// Importa as funções necessárias do SDK do Firebase
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+// Inicializa o Firebase e re-exporta auth / db para uso em outras páginas
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
 import {
   getAuth,
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
-// Configurações do Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyApYs-arymFcCinsc6Qi4TVX2CO-gaNg2c",
   authDomain: "checksync-5e8b5.firebaseapp.com",
@@ -18,11 +19,9 @@ const firebaseConfig = {
   measurementId: "G-JHH295YXZS"
 };
 
-// Inicializa o Firebase
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-// Inicializa os serviços
-export const auth = getAuth(app);
-
-// re-exporta funções auth para usar em outros módulos sem importar do CDN direto
-export { signInWithEmailAndPassword, signOut, onAuthStateChanged };
+// Exporte o que for necessário nas páginas
+export { app, auth, db, signInWithEmailAndPassword, signOut, onAuthStateChanged };

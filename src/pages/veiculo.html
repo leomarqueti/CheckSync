@@ -1,12 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="me">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../styles/formulario.css" />
+    <title>Cadastro de Veículo</title>
 </head>
 <body>
+    <div id="titulo">
+        <h1>Checklist De entrada</h1>
+    </div>
     
+    <section id="Principal">
+        <form class="veiculo-form" action="">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="marca">Marca</label>
+                    <input type="text" id="marca" name="marca">
+                </div>
+
+                <div class="form-group">
+                    <label for="modelo">Modelo</label>
+                    <input type="text" id="modelo" name="modelo">
+                </div>
+
+                <div class="form-group">
+                    <label for="ano">Ano</label>
+                    <input type="number" id="ano" name="ano">
+                </div>
+
+                <div class="form-group">
+                    <label for="placa">Placa</label>
+                    <input type="text" id="placa" name="placa">
+                </div>
+
+                <div class="form-group">
+                    <label for="quilometragem">Quilometragem</label>
+                    <input type="number" id="quilometragem" name="quilometragem">
+                </div>
+
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" name="telefone">
+                </div>
+
+                <div class="form-group">
+                    <label for="dataentrada">Data de entrada</label>
+                    <input type="date" id="dataentrada" name="dataentrada">
+                </div>
+
+                <div class="form-group">
+                    <label for="hora">Hora de entrada</label>
+                    <input type="time" id="hora" name="hora">
+                </div>
+
+                <!-- Espaço extra, caso queira adicionar mais campos -->
+                <div class="form-group"></div>
+            </div>
+
+            <div class="form-actions">
+                <input type="submit" value="Enviar" class="btn">
+            </div>
+        </form>
+    </section>
 </body>
 </html>
